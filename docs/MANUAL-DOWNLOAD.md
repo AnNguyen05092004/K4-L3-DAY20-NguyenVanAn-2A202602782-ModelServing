@@ -5,7 +5,7 @@ captive portal, mạng quá chậm).
 
 ## Chọn model trước
 
-Lab có hai option — tải đúng bộ của model bạn chọn (xem [GUIDE.md](../../GUIDE.md) Bước 0.2):
+Lab có hai option — tải đúng bộ của model bạn chọn (xem [docs/GUIDE.md](GUIDE.md) Bước 0.2):
 
 | `LAB_MODEL=` | Model | Tổng tải |
 |---|---|--:|
@@ -137,7 +137,7 @@ File nhỏ hơn đáng kể = tải dở, xoá và tải lại.
 
 `--skip-download` tìm đúng tên trong bảng trên. Unsloth đôi khi re-upload với nhãn quant
 khác. Khi đó: đổi tên file cho khớp, **hoặc** sửa tuple `primary` / `compare` trong dict `MODELS` ở
-[`lib/labkit.py`](../../lib/labkit.py) và ghi lại việc đó trong REFLECTION §1.
+[`lib/labkit.py`](../lib/labkit.py) và ghi lại việc đó trong REFLECTION §1.
 
 ## Runtime binary cũng bị chặn?
 
@@ -155,5 +155,5 @@ Tải asset đúng platform của bạn từ
 ## Vẫn không được?
 
 Máy dưới 8 GB RAM: thử `LAB_MODEL=qwen35-0.8b` trước — chỉ ~0.9 GB.
-Dưới 4 GB RAM hoặc mạng không thông: dùng [`cloud/`](../../cloud/README.md)
+Dưới 4 GB RAM hoặc mạng không thông: dùng [`docs/CLOUD.md`](CLOUD.md)
 (Colab / Kaggle). Điểm không bị ảnh hưởng, chỉ cần khai báo ở REFLECTION §1.

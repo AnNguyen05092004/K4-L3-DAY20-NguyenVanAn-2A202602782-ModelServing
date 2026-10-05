@@ -10,7 +10,7 @@ LAB_MODEL=qwen35-0.8b make setup        # small model (Qwen3.5 0.8B, ~0.9 GB)
 
 Two models are available; pick one and use it for the whole lab. `make probe` recommends
 one based on your RAM, and `models/active.json` remembers the choice so later steps do not
-need the variable. See [GUIDE.md](../../GUIDE.md) Bước 0.2 for the comparison table.
+need the variable. See [docs/GUIDE.md](../GUIDE.md) Bước 0.2 for the comparison table.
 
 Windows:
 
@@ -52,11 +52,11 @@ read the environment directly, so `LAB_N_THREADS=6 make bench` works too.
 | Symptom | Fix |
 |---|---|
 | `unknown model architecture: 'gemma4'` | Your llama.cpp is too old. `make runtime` re-fetches the pinned build. This is why the lab does not use `llama-cpp-python`. |
-| Hugging Face unreachable | [`MANUAL-DOWNLOAD.md`](MANUAL-DOWNLOAD.md) — browser download, then `--skip-download`. |
+| Hugging Face unreachable | [`MANUAL-DOWNLOAD.md`](../MANUAL-DOWNLOAD.md) — browser download, then `--skip-download`. |
 | GitHub API rate-limited | Harmless: the script falls back to a built-in asset name table. |
 | `No prebuilt asset matches …` | Run with `--list`, pick manually with `--asset`, or build from source (`make build-llama`). |
 | Under 8 GB RAM | `LAB_MODEL=qwen35-0.8b make setup` — runs locally on 4 GB. |
-| Under 4 GB RAM | [`cloud/`](../../cloud/README.md) — Colab or Kaggle, same artifacts, same grade. |
+| Under 4 GB RAM | [`docs/CLOUD.md`](../CLOUD.md) — Colab or Kaggle, same artifacts, same grade. |
 
 ## Next
 
@@ -64,4 +64,4 @@ read the environment directly, so `LAB_N_THREADS=6 make bench` works too.
 make bench
 ```
 
-Step-by-step walkthrough for the whole lab: [`GUIDE.md`](../../GUIDE.md)
+Step-by-step walkthrough for the whole lab: [`docs/GUIDE.md`](../GUIDE.md)

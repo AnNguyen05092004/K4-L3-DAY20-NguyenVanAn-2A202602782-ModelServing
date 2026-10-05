@@ -57,9 +57,9 @@ def main() -> int:
     print(f"    {run} tune       # track 01 - find your best thread count (before/after)")
     print(f"    {run} serve      # track 02 - OpenAI-compatible server + /metrics on :8080")
     print()
-    print("  Full walkthrough: GUIDE.md")
+    print("  Full walkthrough: docs/GUIDE.md")
     if win:
-        print("  (On Windows use .\\lab.ps1 <target> everywhere GUIDE.md says `make <target>`.)")
+        print("  (On Windows use .\\lab.ps1 <target> everywhere docs/GUIDE.md says `make <target>`.)")
     print()
     return 0
 

@@ -1,6 +1,8 @@
-# Rubric — Day 20 Lab (100 điểm base + 20 bonus)
+# Rubric — Day 20 Lab (100 điểm base + tối đa 10 điểm bonus)
 
-Track-2 Daily Lab, trọng số **30%**.
+Track-2 Daily Lab, trọng số **30%**. **Bài cá nhân.**
+
+Cách nộp và deadline: [docs/SUBMISSION.md](SUBMISSION.md) · Quy định: [docs/RULES.md](RULES.md)
 
 > **Đây là báo cáo cá nhân.** Mỗi bạn chạy trên máy mình. Số liệu của bạn **không** so
 > sánh được với bạn cùng lớp — chỉ so **before vs after trên chính máy bạn**. Rubric chấm
@@ -11,7 +13,7 @@ Track-2 Daily Lab, trọng số **30%**.
 
 Grader chấm **file thật trong repo của bạn**, không chấm những gì bạn nói bạn đã làm.
 
-Cách làm từng bước: **[GUIDE.md](GUIDE.md)**
+Cách làm từng bước: **[docs/GUIDE.md](GUIDE.md)**
 
 ---
 
@@ -82,20 +84,23 @@ phải chỗ mất điểm.
 
 ---
 
-## Bonus track — 20 điểm (optional)
+## Bonus track — tối đa 10 điểm (optional)
 
 Mọi tiêu chí đều đạt được trên **bất kỳ** nền tảng. B5 có 4 lựa chọn nên Apple Silicon
 là *một* option, không phải điều kiện.
 
 | # | Được điểm khi | Lệnh | Điểm |
 |--:|---|---|--:|
-| B1 | Compile llama.cpp cho CPU của bạn và **so với prebuilt binary** | `make build-llama && make compare-builds` | 4 |
-| B2 | Chạy ít nhất 1 sweep | `make sweep-quant` / `sweep-ctx` / `sweep-batch` / `sweep-gpu` | 4 |
-| B3 | Speedup **của bonus track** có before/after rõ ràng | REFLECTION §6 (từ B1 hoặc B2, **không** phải kết quả `make tune` của base) | 4 |
-| B4 | Làm ít nhất 1 challenge C1–C7 hoặc C10 | `bonus/CHALLENGES.md` | 4 |
-| B5 | Một so sánh runtime/regime — **chọn 1**: MLX (Mac) · C8 semantic cache · C9 embedding serving · C6 Vulkan vs CUDA | `make mlx-compare` · `make semantic-cache` · `make embed-demo` | 4 |
+| B1 | Compile llama.cpp cho CPU của bạn và **so với prebuilt binary** | `make build-llama && make compare-builds` | 2 |
+| B2 | Chạy ít nhất 1 sweep | `make sweep-quant` / `sweep-ctx` / `sweep-batch` / `sweep-gpu` | 2 |
+| B3 | Speedup **của bonus track** có before/after rõ ràng | REFLECTION §6 (từ B1 hoặc B2, **không** phải kết quả `make tune` của base) | 2 |
+| B4 | Làm ít nhất 1 challenge C1–C7 hoặc C10 | `docs/bonus/CHALLENGES.md` | 2 |
+| B5 | Một so sánh runtime/regime — **chọn 1**: MLX (Mac) · C8 semantic cache · C9 embedding serving · C6 Vulkan vs CUDA | `make mlx-compare` · `make semantic-cache` · `make embed-demo` | 2 |
 
-**Tổng bonus: 20 điểm**
+**Tổng bonus: tối đa 10 điểm** (trên thang 100).
+
+Bonus ở đây là điểm cộng **cho bài lab**, chấm từ bằng chứng trong repo — không phải
+điểm giơ tay, phát biểu hay pitching trên lớp.
 
 Bonus **không** làm giảm điểm base. Bỏ hẳn bonus vẫn ổn. Submission bonus **tốt** được
 instructor viết review riêng, tập trung vào chất lượng lập luận.
@@ -107,7 +112,7 @@ instructor viết review riêng, tập trung vào chất lượng lập luận.
 ## 5 screenshots bắt buộc
 
 Tất cả đều từ base track — **không cái nào cần bonus, GPU, hay compiler.**
-Chi tiết + tips: [`submission/screenshots/README.md`](submission/screenshots/README.md)
+Chi tiết + tips: [`submission/screenshots/README.md`](../submission/screenshots/README.md)
 
 > Tên file dưới đây là **gợi ý** (giữ số thứ tự để sắp đúng thứ tự chạy); grader map
 > chúng qua REFLECTION của bạn. `make verify` đếm đủ 5 ảnh **đã commit**, không ép tên.
@@ -127,6 +132,8 @@ Chi tiết + tips: [`submission/screenshots/README.md`](submission/screenshots/R
 | Mất điểm vì | Tránh bằng cách |
 |---|---|
 | Repo để **private** → grader không xem được | Set **public** cho tới khi có điểm. Private = **0 điểm** |
+| Tên repo sai quy ước → dễ bị chấm nhầm hoặc sót bài | Đặt đúng `K4-L3-DAY20-HoVaTen-MSSV-ModelServing` — xem [docs/SUBMISSION.md](SUBMISSION.md) |
+| Nộp sau 23:59 (UTC+7) ngày làm lab | Bị trừ điểm nộp muộn — xem [docs/RULES.md](RULES.md) |
 | `make metrics` chạy khi server rảnh → `busy_slots ≈ 1`, không có bằng chứng batching | Chạy `make metrics` **chồng thời gian** với `make load-50` (điểm 9) |
 | Còn sót section **"required — replace this line"** trong `benchmarks/*.md` | `make verify` sẽ fail. Đọc và điền hết |
 | REFLECTION còn placeholder `<Họ Tên>`, `_Answer here._` | `make verify` sẽ fail |
@@ -140,23 +147,16 @@ Chi tiết + tips: [`submission/screenshots/README.md`](submission/screenshots/R
 
 ## Cách submit
 
-**KHÔNG cần PR — chỉ submit GitHub URL công khai vào VinUni LMS.**
-
-1. Fork/copy repo này lên GitHub account của bạn, set **public**
-2. Hoàn thành base track (`make verify` exit 0)
-3. (Optional) làm bonus
-4. Add 5 screenshots vào `submission/screenshots/`
-5. Điền `submission/REFLECTION.md`
-6. `make verify` → **exit 0**
-7. Push, paste public URL vào ô submission Day 20 trên LMS
+**KHÔNG cần PR — chỉ submit GitHub URL công khai vào VinUni LMS.** Tên repo, file phải
+nộp, deadline và các bước kiểm tra: **[docs/SUBMISSION.md](SUBMISSION.md)**.
 
 ---
 
 ## Grader chạy repo của bạn như thế nào
 
 ```bash
-git clone https://github.com/<you>/<your-repo>
-cd <your-repo>
+git clone https://github.com/<you>/K4-L3-DAY20-<HoVaTen>-<MSSV>-ModelServing
+cd K4-L3-DAY20-<HoVaTen>-<MSSV>-ModelServing
 cat hardware.json models/active.json          # điểm 1, 2
 cat benchmarks/01-quickstart-results.md       # điểm 3, 4, 5
 cat benchmarks/02-server-results.md           # điểm 10
@@ -172,6 +172,6 @@ ls benchmarks/bonus-*.md                      # bonus
 
 ---
 
-## Late policy / regrade
+## Nộp muộn / sửa bài sau deadline
 
-Theo policy chuẩn của Track-2 — xem `INDEX-Track2.md` trong repo course material.
+Xem [docs/RULES.md](RULES.md).

@@ -286,7 +286,7 @@ def main() -> int:
         print(f"✗ Not ready — {len(r.problems)} item(s) to fix:\n")
         for p in r.problems:
             print(f"  - {p}")
-        print("\nSee rubric.md for what each item is worth. Re-run `make verify` when fixed.")
+        print("\nSee docs/RUBRIC.md for what each item is worth. Re-run `make verify` when fixed.")
         return 1
 
     print("✓ All checks passed.")

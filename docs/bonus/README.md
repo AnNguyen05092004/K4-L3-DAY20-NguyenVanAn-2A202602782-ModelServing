@@ -1,7 +1,7 @@
-# Phần bonus (+20 điểm, không bắt buộc)
+# Phần bonus (tối đa +10 điểm, không bắt buộc)
 
 > Chỉ bắt đầu khi bạn đã hoàn tất base track và `make verify` exit 0. Xem
-> **[GUIDE.md → PHASE 2](../GUIDE.md)**.
+> **[docs/GUIDE.md → PHASE 2](../GUIDE.md)**.
 
 Ở phần lab chính, bạn được cung cấp một prebuilt binary và một server hoạt động sẵn.
 Trong track này, bạn đi xuống một lớp thấp hơn: tự compile llama.cpp cho CPU của mình,
@@ -19,24 +19,24 @@ và câu hỏi bạn muốn trả lời.
 
 ---
 
-## Năm tiêu chí bonus, mỗi tiêu chí 4 điểm
+## Năm tiêu chí bonus, mỗi tiêu chí 2 điểm
 
 | # | Được điểm khi | Lệnh | Điểm |
 |--:|---|---|--:|
-| B1 | Compile llama.cpp cho CPU của bạn và **so với prebuilt binary** | `make build-llama && make compare-builds` | 4 |
-| B2 | Chạy ít nhất 1 sweep | `make sweep-quant` / `sweep-ctx` / `sweep-batch` / `sweep-gpu` | 4 |
-| B3 | Speedup **của bonus track** có before/after rõ ràng | REFLECTION §6 (từ B1 hoặc B2, **không** phải kết quả `make tune` của base) | 4 |
-| B4 | Làm ít nhất 1 challenge C1–C7 hoặc C10 | [`bonus/CHALLENGES.md`](CHALLENGES.md) | 4 |
-| B5 | Một so sánh runtime/regime — **chọn 1**: MLX (Mac) · C8 semantic cache · C9 embedding serving · C6 Vulkan vs CUDA | `make mlx-compare` · `make semantic-cache` · `make embed-demo` | 4 |
+| B1 | Compile llama.cpp cho CPU của bạn và **so với prebuilt binary** | `make build-llama && make compare-builds` | 2 |
+| B2 | Chạy ít nhất 1 sweep | `make sweep-quant` / `sweep-ctx` / `sweep-batch` / `sweep-gpu` | 2 |
+| B3 | Speedup **của bonus track** có before/after rõ ràng | REFLECTION §6 (từ B1 hoặc B2, **không** phải kết quả `make tune` của base) | 2 |
+| B4 | Làm ít nhất 1 challenge C1–C7 hoặc C10 | [`docs/bonus/CHALLENGES.md`](CHALLENGES.md) | 2 |
+| B5 | Một so sánh runtime/regime — **chọn 1**: MLX (Mac) · C8 semantic cache · C9 embedding serving · C6 Vulkan vs CUDA | `make mlx-compare` · `make semantic-cache` · `make embed-demo` | 2 |
 
-**Tổng bonus: 20 điểm.**
+**Tổng bonus: tối đa 10 điểm** (trên thang 100). Đây là điểm cộng cho bài lab, không phải điểm giơ tay, phát biểu hay pitching.
 
 Chi tiết từng challenge có trong [`CHALLENGES.md`](CHALLENGES.md).
 
 B1 yêu cầu cả hai phần: build từ mã nguồn **và** so sánh với prebuilt binary bằng
 `make compare-builds`. Chỉ build thành công chưa đủ để đạt B1.
 
-B5 có bốn lựa chọn để mọi nền tảng đều có thể đạt 20/20:
+B5 có bốn lựa chọn để mọi nền tảng đều có thể đạt đủ 10/10 điểm bonus:
 
 | Máy của bạn | Lựa chọn B5 |
 |---|---|
@@ -85,10 +85,13 @@ Trước khi chọn, bạn cần biết hai điểm sau:
 Cấu trúc thư mục:
 
 ```
-bonus/
+docs/bonus/
+├── README.md                 ← this file
 ├── 01-build-from-source.md   ← per-OS, per-backend build guide
+└── CHALLENGES.md             ← C1-C10, pick one and go deep
+
+bonus/
 ├── compare-builds.py         ← B1: prebuilt vs your build, same model, same workload
-├── CHALLENGES.md             ← C1-C10, pick one and go deep
 ├── sweeps/
 │   ├── quant-sweep.py        ← Unsloth Dynamic ladder, UD-IQ2_M -> UD-Q8_K_XL
 │   ├── ctx-len-sweep.py      ← prefill cost vs prompt length

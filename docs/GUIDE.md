@@ -1,5 +1,9 @@
 # GUIDE — Làm lab Day 20 từ đầu đến cuối
 
+> **Bài cá nhân** — mỗi học viên tự làm và tự nộp repo riêng. Checkpoint tóm tắt:
+> [docs/CHECKPOINTS.md](CHECKPOINTS.md) · Cách nộp: [docs/SUBMISSION.md](SUBMISSION.md) ·
+> Quy định: [docs/RULES.md](RULES.md)
+
 Làm lần lượt theo hướng dẫn này. Mỗi bước cho biết **lệnh cần chạy**, **kết quả bạn sẽ
 thấy** và **file được sinh ra**. Các file đó là bằng chứng để chấm điểm.
 
@@ -30,7 +34,7 @@ thấy** và **file được sinh ra**. Các file đó là bằng chứng để 
 ```
 PHASE 0  Setup                 ~20 phút
 PHASE 1  Base track (100 điểm)  ~2 giờ      ← bắt buộc
-PHASE 2  Bonus track (20 điểm)  ~1-2 giờ    ← optional, chỉ làm SAU khi xong base
+PHASE 2  Bonus track (≤10 điểm) ~1-2 giờ    ← optional, chỉ làm SAU khi xong base
 PHASE 3  Submit                 ~5 phút
 ```
 
@@ -57,7 +61,7 @@ Bạn sẽ thấy thông tin về CPU, số core, RAM, accelerator và model dù
 |---|---|
 | **≥ 8 GB** | Tiếp tục bước 0.2 và 0.3 trên laptop |
 | **4–8 GB** | Vẫn chạy local, chỉ đổi model: `LAB_MODEL=qwen35-0.8b make setup` (xem bước 0.2). **Không mất điểm.** |
-| **< 4 GB** | Mở [`cloud/README.md`](cloud/README.md) và làm trên Colab/Kaggle. **Không mất điểm.** |
+| **< 4 GB** | Mở [`docs/CLOUD.md`](CLOUD.md) và làm trên Colab/Kaggle. **Không mất điểm.** |
 
 → Sinh ra: **`hardware.json`** *(rubric 1)*
 
@@ -106,7 +110,7 @@ mỗi request xong nhanh hơn nên bạn thu được nhiều mẫu hơn trong 6
 **Bước 0.3 (`make setup`) tự tải hai file đầu.** Bảng trên để bạn biết mình đang tải gì, và
 để dùng khi mạng trường chặn Hugging Face. Nếu tải tự động fail, script in ra đúng lệnh
 `curl` cần chạy — chi tiết trong
-[`labs/00-setup/MANUAL-DOWNLOAD.md`](labs/00-setup/MANUAL-DOWNLOAD.md).
+[`docs/MANUAL-DOWNLOAD.md`](MANUAL-DOWNLOAD.md).
 
 ---
 
@@ -137,7 +141,7 @@ pwsh -ExecutionPolicy Bypass -File labs/00-setup/bootstrap.ps1
 → Sinh ra: **`models/active.json`** *(rubric 2)*, `runtime/`, `models/*.gguf`
 
 Nếu tải model fail do mạng trường chặn Hugging Face, xem
-[`labs/00-setup/MANUAL-DOWNLOAD.md`](labs/00-setup/MANUAL-DOWNLOAD.md).
+[`docs/MANUAL-DOWNLOAD.md`](MANUAL-DOWNLOAD.md).
 
 ---
 
@@ -145,7 +149,7 @@ Nếu tải model fail do mạng trường chặn Hugging Face, xem
 
 ## Bước 1.1 — Đo baseline: TTFT / TPOT / percentiles
 
-> 📖 Đọc [`labs/01-measure/README.md`](labs/01-measure/README.md) trước: vì sao TPOT bị
+> 📖 Đọc [`docs/labs/01-measure.md`](labs/01-measure.md) trước: vì sao TPOT bị
 > chặn bởi **memory bandwidth** chứ không phải FLOPs, và vì sao chạy benchmark cạnh 40
 > tab Chrome là đang đo Chrome. REFLECTION §2 và §5 chấm đúng phần lập luận này.
 
@@ -214,7 +218,7 @@ lỗi cần che đi.
 
 ## Bước 1.3 — Dựng server và chứng minh server hoạt động
 
-> 📖 Đọc [`labs/02-serve/README.md`](labs/02-serve/README.md) trước: continuous batching,
+> 📖 Đọc [`docs/labs/02-serve.md`](labs/02-serve.md) trước: continuous batching,
 > cách đọc queue time vs compute time bằng Little's Law, và thí nghiệm đáng giá nhất của
 > lab (`--parallel 1` so với `--parallel 4`). REFLECTION §3 chấm phần này.
 
@@ -292,7 +296,7 @@ compute. Đây là lập luận goodput@SLO trong deck §8.
 
 ## Bước 1.6 — Chạy RAG pipeline
 
-> 📖 Đọc [`labs/03-integrate/README.md`](labs/03-integrate/README.md) trước: vì sao
+> 📖 Đọc [`docs/labs/03-integrate.md`](labs/03-integrate.md) trước: vì sao
 > prefill là phần RAG thổi phồng, và prompt caching thay đổi số đo thế nào.
 
 Giữ server chạy. Tại terminal 2:
@@ -317,7 +321,7 @@ Dùng stub không mất điểm; khai báo sai mới mất điểm. Nếu có co
 
 ## Bước 1.7 — Viết REFLECTION.md
 
-Mở [`submission/REFLECTION.md`](submission/REFLECTION.md) và điền đủ mọi section. Đây
+Mở [`submission/REFLECTION.md`](../submission/REFLECTION.md) và điền đủ mọi section. Đây
 là file grader đọc kỹ nhất.
 
 Phần quan trọng nhất là **§5 "The single change that mattered most"** (10 điểm). Dùng
@@ -336,22 +340,22 @@ Lệnh này phải **exit 0**. Nếu fail, output sẽ liệt kê file còn thi�
 
 ---
 
-# PHASE 2 — Bonus track (20 điểm, optional)
+# PHASE 2 — Bonus track (tối đa 10 điểm, optional)
 
 > **Chỉ bắt đầu khi PHASE 1 đã hoàn tất và `make verify` đã exit 0.** Bonus không bù
 > được phần base còn thiếu.
 
-Chi tiết: [`bonus/README.md`](bonus/README.md) ·
-[`bonus/CHALLENGES.md`](bonus/CHALLENGES.md)
+Chi tiết: [`docs/bonus/README.md`](bonus/README.md) ·
+[`docs/bonus/CHALLENGES.md`](bonus/CHALLENGES.md)
 
-Chọn **1–2 mục**, không cần làm hết. Có 5 tiêu chí, mỗi tiêu chí 4 điểm:
+Chọn **1–2 mục**, không cần làm hết. Có 5 tiêu chí, mỗi tiêu chí 2 điểm (tối đa 10 điểm):
 
 | | Lệnh | Ghi chú |
 |---|---|---|
 | **B1** | `make build-llama && make compare-builds` | Compile cho CPU của bạn rồi so với prebuilt binary. **Máy yếu thường có mức cải thiện rõ nhất ở đây.** Cần `cmake`. |
 | **B2** | `make sweep-quant` / `sweep-ctx` / `sweep-batch` / `sweep-gpu` | Chọn 1 sweep phù hợp với bottleneck của bạn |
 | **B3** | — | Ghi before/after của B1 hoặc B2 vào REFLECTION §6 |
-| **B4** | — | Chọn 1 challenge C1–C7 trong `bonus/CHALLENGES.md` |
+| **B4** | — | Chọn 1 challenge C1–C7 trong `docs/bonus/CHALLENGES.md` |
 | **B5** | `make mlx-compare` (Mac) **hoặc** `make semantic-cache` (C8) **hoặc** `make serve-embed && make embed-demo` (C9) **hoặc** C6 | 4 lựa chọn; nền tảng nào cũng có lựa chọn phù hợp |
 
 Gợi ý theo máy và mục tiêu:
@@ -369,8 +373,13 @@ Mỗi bonus script cũng sinh file `benchmarks/bonus-*.md` có section
 
 # PHASE 3 — Submit
 
+> Chi tiết đầy đủ (cấu trúc file, checklist): **[docs/SUBMISSION.md](SUBMISSION.md)**.
+> **Deadline: 23:59 (UTC+7) ngày làm lab** — nộp muộn bị trừ điểm ([docs/RULES.md](RULES.md)).
+
 1. Chạy `make verify` lần cuối. Kết quả phải **exit 0**.
-2. Fork/copy repo lên GitHub account của bạn và set **public**.
+2. Tạo repo **public** trên GitHub account của bạn, đặt tên đúng quy ước
+   **`K4-L3-DAY20-HoVaTen-MSSV-ModelServing`** (không dấu, không khoảng trắng; ví dụ
+   `K4-L3-DAY20-NguyenVanAn-20241234-ModelServing`). Fork rồi đổi tên cũng được.
 3. Commit và push:
 
    ```bash
@@ -399,8 +408,8 @@ Không commit `models/*.gguf` hoặc `runtime/`. Hai path này đã có trong `.
 | `make metrics` báo scrape failed | Server chưa chạy. Chạy `make serve` trước. |
 | `busy_slots ≈ 1` dù đã chạy metrics | Bạn chạy `make metrics` khi không có load. Phải chạy chồng với `make load-50`. |
 | locust chỉ hoàn thành vài request | Bình thường trên máy yếu. Muốn thêm mẫu, dùng `-t 3m` hoặc giảm `LAB_LOAD_SHORT_TOKENS`. |
-| Hugging Face bị chặn | Xem [`labs/00-setup/MANUAL-DOWNLOAD.md`](labs/00-setup/MANUAL-DOWNLOAD.md). |
-| Máy < 8 GB RAM | Dùng [`cloud/README.md`](cloud/README.md). |
+| Hugging Face bị chặn | Xem [`docs/MANUAL-DOWNLOAD.md`](MANUAL-DOWNLOAD.md). |
+| Máy < 8 GB RAM | Dùng [`docs/CLOUD.md`](CLOUD.md). |
 | `make verify` fail mà chưa rõ lý do | Output ghi đúng file còn thiếu và lệnh cần chạy. Đọc từng dòng lỗi. |
 | Sau checklist có dòng `make: *** [verify] Error 1` | Bình thường. Đó chỉ là cách `make` báo rằng `verify` tìm thấy mục còn thiếu — không phải `make` bị lỗi. Đọc checklist ở trên nó. |
 
@@ -415,4 +424,4 @@ LAB_PARALLEL=8 make serve        # nhiều slot hơn
 LAB_REASONING=on make bench      # bật thinking để đo chi phí
 ```
 
-Danh sách đầy đủ: [`.env.example`](.env.example)
+Danh sách đầy đủ: [`.env.example`](../.env.example)

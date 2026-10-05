@@ -11,7 +11,7 @@
       .\lab.ps1 load-50
       .\lab.ps1 verify
 
-  Every target maps 1:1 to the make target of the same name, so GUIDE.md applies
+  Every target maps 1:1 to the make target of the same name, so docs/GUIDE.md applies
   as written — just substitute `.\lab.ps1 x` for `make x`.
 #>
 param(

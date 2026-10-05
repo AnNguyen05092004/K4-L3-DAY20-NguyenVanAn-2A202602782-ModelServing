@@ -3,7 +3,7 @@
 #   powershell -ExecutionPolicy Bypass -File labs\00-setup\bootstrap.ps1
 #   pwsh       -ExecutionPolicy Bypass -File labs\00-setup\bootstrap.ps1
 #
-# Afterwards, use .\lab.ps1 <target> for every step GUIDE.md writes as `make <target>`.
+# Afterwards, use .\lab.ps1 <target> for every step docs/GUIDE.md writes as `make <target>`.
 $ErrorActionPreference = 'Stop'
 Set-Location (Join-Path $PSScriptRoot '..\..')
 
@@ -31,4 +31,4 @@ Write-Host ""
 Write-Host "==> Next steps use .\lab.ps1 (the Windows equivalent of make):" -ForegroundColor Green
 Write-Host "      .\lab.ps1            # list every target"
 Write-Host "      .\lab.ps1 bench      # start track 01"
-Write-Host "    Full walkthrough: GUIDE.md"
+Write-Host "    Full walkthrough: docs/GUIDE.md"

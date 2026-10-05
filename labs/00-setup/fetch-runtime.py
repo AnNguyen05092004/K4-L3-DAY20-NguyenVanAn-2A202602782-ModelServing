@@ -36,7 +36,7 @@ ALL_ACCEL = ("cuda", "vulkan", "rocm", "hip", "sycl", "openvino", "cann", "musa"
 NEVER = ("sycl", "openvino", "cann", "musa", "musl", "opencl", "adreno", "android", "s390x")
 
 # Fallback if the GitHub API is rate-limited (a whole classroom shares one NAT).
-# Keyed by (os_token, arch_token, accel). Covers every platform HARDWARE-GUIDE.md
+# Keyed by (os_token, arch_token, accel). Covers every platform docs/HARDWARE-GUIDE.md
 # promises, so a rate-limited classroom is never told to go compile instead.
 FALLBACK_ASSETS = {
     ("-macos-", "arm64", "plain"): f"llama-{BUILD}-bin-macos-arm64.tar.gz",

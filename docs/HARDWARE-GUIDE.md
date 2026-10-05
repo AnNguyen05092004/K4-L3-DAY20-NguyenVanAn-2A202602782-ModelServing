@@ -1,6 +1,6 @@
 # Hardware Guide
 
-> Cách làm lab từng bước: **[GUIDE.md](GUIDE.md)** · Chấm điểm: [`rubric.md`](rubric.md)
+> Cách làm lab từng bước: **[docs/GUIDE.md](GUIDE.md)** · Chấm điểm: [`docs/RUBRIC.md`](RUBRIC.md)
 
 > **Laptop của bạn *là* lab.** Không có shared sandbox. Rubric thưởng độ rõ ràng
 > của *your own before/after*, không phải absolute throughput. Đừng so số với bạn
@@ -18,7 +18,7 @@
 | Docker | **không cần bao giờ** |
 
 **RAM < 8 GB?** Chạy local với model nhỏ: `LAB_MODEL=qwen35-0.8b make setup`.
-**RAM < 4 GB?** Dùng [`cloud/`](cloud/README.md) (Colab hoặc Kaggle) và khai báo ở
+**RAM < 4 GB?** Dùng [`docs/CLOUD.md`](CLOUD.md) (Colab hoặc Kaggle) và khai báo ở
 REFLECTION §1. Điểm không bị ảnh hưởng — rubric chấm lập luận, không chấm phần cứng.
 
 ## 2. Model — chọn một trong hai
@@ -110,7 +110,7 @@ Ghi đè lựa chọn tự động:
 ## 6. Network
 
 - Hugging Face có thể bị chặn ở mạng trường. Nếu `make setup` fail ở bước model,
-  xem [`labs/00-setup/MANUAL-DOWNLOAD.md`](labs/00-setup/MANUAL-DOWNLOAD.md).
+  xem [`docs/MANUAL-DOWNLOAD.md`](MANUAL-DOWNLOAD.md).
 - GitHub release API giới hạn 60 request/giờ/IP. Cả lớp cùng NAT có thể chạm giới
   hạn — script tự fallback sang bảng tên asset có sẵn, nên vẫn tải được.
 - Không có Docker pull nào trong toàn bộ lab.

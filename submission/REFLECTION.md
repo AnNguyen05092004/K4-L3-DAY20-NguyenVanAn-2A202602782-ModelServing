@@ -7,6 +7,7 @@
 > `make verify` sẽ fail nếu còn placeholder chưa điền. Đó là cố ý.
 
 **Họ Tên:** _<Họ Tên>_
+**MSSV:** _<MSSV>_
 **Cohort:** _<A20-K1 / A20-K2 / ...>_
 **Ngày submit:** _<YYYY-MM-DD>_
 
@@ -129,9 +130,9 @@ _Answer here._
 
 ---
 
-## 6. Bonus  *(optional — tối đa 20 điểm)*
+## 6. Bonus  *(optional — tối đa 10 điểm)*
 
-> Bỏ trống nếu không làm. Xem `bonus/README.md`. Đừng làm hết — **một** finding sâu
+> Bỏ trống nếu không làm. Xem `docs/bonus/README.md`. Đừng làm hết — **một** finding sâu
 > ăn điểm hơn năm bảng nông.
 
 **Đã làm:** _<B1 build-compare / B2 sweep nào / B4 challenge nào / B5 lựa chọn nào>_
@@ -172,9 +173,16 @@ _(để trống nếu bạn không làm phần này)_
       đã được thay bằng nhận xét của bạn
 - [ ] 5 screenshots trong `submission/screenshots/`
 - [ ] `make verify` → **exit 0**
+- [ ] Repo tên đúng mẫu `K4-L3-DAY20-HoVaTen-MSSV-ModelServing` (xem `docs/SUBMISSION.md`)
 - [ ] Repo GitHub ở chế độ **public**
-- [ ] Đã paste public URL vào VinUni LMS
-- [ ] **Không** commit `models/*.gguf` hay `runtime/` (đã có trong `.gitignore`)
+- [ ] Đã push và paste public URL vào VinUni LMS **trước 23:59 (UTC+7) ngày làm lab**
+- [ ] **Không** commit `models/*.gguf`, `runtime/` hay `.env` (đã có trong `.gitignore`)
 
 **Quan trọng:** repo phải **public** đến khi điểm được công bố. Private → grader không
 xem được → 0 điểm.
+
+---
+
+## 9. Khai báo sử dụng AI  *(xem `docs/RULES.md` §3)*
+
+_(Công cụ nào, dùng vào việc gì. Ghi "Không dùng" nếu không dùng.)_

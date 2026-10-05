@@ -89,7 +89,7 @@ def main() -> int:
             if not found:
                 labkit.die(
                     f"--skip-download but {f} is not under models/.",
-                    "Drop it in manually first -- see labs/00-setup/MANUAL-DOWNLOAD.md",
+                    "Drop it in manually first -- see docs/MANUAL-DOWNLOAD.md",
                 )
             print(f"==> Found {found.relative_to(labkit.repo_root())}")
             resolved[f] = found
@@ -113,7 +113,7 @@ def main() -> int:
             print("\nThen write the manifest:", file=sys.stderr)
             print(f"  {sys.executable} labs/00-setup/download-model.py --skip-download",
                   file=sys.stderr)
-            print("\nFull instructions: labs/00-setup/MANUAL-DOWNLOAD.md", file=sys.stderr)
+            print("\nFull instructions: docs/MANUAL-DOWNLOAD.md", file=sys.stderr)
             return 1
 
     def rel(p: pathlib.Path) -> str:

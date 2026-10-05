@@ -1,9 +1,9 @@
 # Cloud fallback — Colab / Kaggle
 
-> Các bước của lab không đổi: **[GUIDE.md](../GUIDE.md)**
+> Các bước của lab không đổi: **[docs/GUIDE.md](GUIDE.md)**
 
 Đây là **phương án fallback**, không phải cách chạy mặc định. Hãy dùng
-[`Day20-lab.ipynb`](Day20-lab.ipynb) khi laptop có dưới **4 GB RAM**, hoặc khi setup local
+[`Day20-lab.ipynb`](../cloud/Day20-lab.ipynb) khi laptop có dưới **4 GB RAM**, hoặc khi setup local
 gặp lỗi bạn không thể xử lý.
 
 > **Thử cách này trước.** Nếu máy bạn có 4–8 GB RAM, bạn vẫn chạy được lab **local** với
@@ -84,8 +84,9 @@ nén vào clone local của bạn, rồi làm lần lượt:
    nhận xét của bạn. Nếu còn bất kỳ section nào, `make verify` sẽ fail.
 2. Điền `submission/REFLECTION.md`, gồm cả khai báo cloud trong §1.
 3. Thêm 5 screenshots từ output của các notebook cell.
-4. Chạy `make verify` và bảo đảm lệnh **exit 0**. Sau đó push lên repo **public** và
-   submit URL.
+4. Chạy `make verify` và bảo đảm lệnh **exit 0**. Sau đó push lên repo **public** tên
+   `K4-L3-DAY20-HoVaTen-MSSV-ModelServing` và submit URL trước deadline — xem
+   [docs/SUBMISSION.md](SUBMISSION.md).
 
 ## Lỗi thường gặp
 

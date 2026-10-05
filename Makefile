@@ -115,7 +115,7 @@ verify: ## Check submission readiness (run before you push)
 	@$(SYSPY) scripts/verify.py
 
 # ─────────────────────────────────────────────────────────────
-## --- Bonus (optional, +20 pts)
+## --- Bonus (optional, up to +10 pts)
 # ─────────────────────────────────────────────────────────────
 
 build-llama: venv-check ## B1 - build llama.cpp from source and beat the prebuilt binary

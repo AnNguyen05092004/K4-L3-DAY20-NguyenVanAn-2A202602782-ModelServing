@@ -35,7 +35,7 @@ if sys.platform != "darwin" or platform.machine() not in ("arm64", "aarch64"):
     print("This bonus needs Apple Silicon macOS.", file=sys.stderr)
     print("Cross-platform alternatives worth the same 4 points: bonus C8 (semantic cache),",
           file=sys.stderr)
-    print("C9 (embedding serving), or C6 (Vulkan vs CUDA). See bonus/CHALLENGES.md.",
+    print("C9 (embedding serving), or C6 (Vulkan vs CUDA). See docs/bonus/CHALLENGES.md.",
           file=sys.stderr)
     sys.exit(1)
 
