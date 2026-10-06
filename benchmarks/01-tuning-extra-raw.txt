@@ -1,0 +1,27 @@
+# Raw output of the two extra llama-bench runs cited in 01-tuning-tg128.md (run by hand, not by make tune).
+# -t 20 with -ngl 0 was aborted after >23 min with no result (every other point took seconds).
+### CPU only (-ngl 0), tg128, r=3
+-t 1
+   avg_ts="57.022145" stddev="0.970669"
+-t 2
+   avg_ts="95.171095" stddev="1.388412"
+-t 4
+   avg_ts="100.039619" stddev="3.252596"
+-t 6
+   avg_ts="104.165337" stddev="3.402346"
+-t 8
+   avg_ts="94.196467" stddev="8.399275"
+-t 10
+   avg_ts="57.734801" stddev="9.320869"
+-t 20
+### Metal (-ngl 99), tg128, r=6
+-t 1
+   avg_ts="83.799256" stddev="3.856350"
+-t 4
+   avg_ts="84.717237" stddev="3.191641"
+-t 10
+   avg_ts="70.533952" stddev="6.869248"
+-t 1
+   avg_ts="84.947851" stddev="3.137269"
+-t 10
+   avg_ts="72.635451" stddev="4.000499"
